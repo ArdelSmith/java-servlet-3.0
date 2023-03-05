@@ -27,7 +27,7 @@
                     <a href="http://localhost:8080/files?path=${path}/${list.getName()}">${list.getName()}</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="http://localhost:8080/download?fileName=${list.getName()}" download="${list.getName()}">${list.getName()}</a>
+                    <a href="http://localhost:8080/download?path=${path}/${list.getName()}" download="${list.getName()}">${list.getName()}</a>
                 </c:otherwise>
             </c:choose>
         </td>
