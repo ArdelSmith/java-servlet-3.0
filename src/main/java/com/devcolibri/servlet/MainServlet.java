@@ -29,7 +29,8 @@ public class MainServlet extends HttpServlet {
         File dir = new File(request.getAttribute(path).toString());
         File[] arrFiles = dir.listFiles();
         Arrays.sort(arrFiles);
-        request.setAttribute("parent", Paths.get(request.getParameter(path)).getParent().toAbsolutePath().toString());
+        request.setAttribute("parent", Paths.get(request.getParameter(path)).getParent().toAbsolutePath().toString()
+                .replace("\\", "/"));
         request.setAttribute("date", new Date(System.currentTimeMillis()));
         request.setAttribute("list", Arrays.asList(arrFiles));
         request.setAttribute("url", request.getRequestURI());

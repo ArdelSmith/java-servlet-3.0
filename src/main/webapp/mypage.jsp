@@ -10,7 +10,8 @@
 </head>
 <body>
     <h1>${date}</h1>
-    <h2><a href=$"{parent}">Previous</a></h2>
+    <h2><a href="http://localhost:8080/files?path=${parent}"><image src ="../static/images/previous.png" width="50" height="50"></a></h2>
+    <h3>${path}<h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>Type</th>
@@ -20,7 +21,7 @@
         <c:forEach items="${list}" var="list">
             <tr>
                 <td><image src="../static/images/directory.png" width="50" height="50"></td>
-                <td><a href="${url}?path=${path}/${list.getName()}"</a>${list.getName()}</td>
+                <td><a href="http://localhost:8080/files?path=${path}/${list.getName()}"</a>${list.getName()}</td>
                 <td><c:out value = "${list.length()} Bytes"/></td>
             </tr>
         </c:forEach>
