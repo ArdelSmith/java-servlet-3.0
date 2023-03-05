@@ -19,13 +19,21 @@
             <th>Size</th>
         </tr>
         <c:forEach items="${list}" var="list">
-            <tr>
-                <td><image src="../static/images/directory.png" width="50" height="50"></td>
-                <td><a href="http://localhost:8080/files?path=${path}/${list.getName()}"</a>${list.getName()}</td>
-                <td><c:out value = "${list.length()} Bytes"/></td>
-            </tr>
+        <tr>
+        <td><image src="${list.isDirectory() ? '../static/images/directory.png' : '../static/images/file.jpg'}" width="50" height="50"></td>
+        <td>
+            <c:choose>
+                <c:when test="${list.isDirectory()}">
+                    <a href="http://localhost:8080/files?path=${path}/${list.getName()}">${list.getName()}</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="http://localhost:8080/download?fileName=${list.getName()}" download="${list.getName()}">${list.getName()}</a>
+                </c:otherwise>
+            </c:choose>
+        </td>
+        <td><c:out value = "${list.length()} Bytes"/></td>
+        </tr>
         </c:forEach>
     </table>
-
 </body>
 </html>

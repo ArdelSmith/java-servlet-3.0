@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
+import java.io.*;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,7 +32,7 @@ public class MainServlet extends HttpServlet {
         request.setAttribute("parent", Paths.get(request.getParameter(path)).getParent().toAbsolutePath().toString()
                 .replace("\\", "/"));
         request.setAttribute("date", new Date(System.currentTimeMillis()));
-        request.setAttribute("list", Arrays.asList(arrFiles));
+        request.setAttribute("list", arrFiles);
         request.setAttribute("url", request.getRequestURI());
         getServletContext().getRequestDispatcher("/mypage.jsp").forward(request, response);
     }
