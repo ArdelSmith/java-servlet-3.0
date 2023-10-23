@@ -15,10 +15,6 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>mainServlet</servlet-name>
-        <url-pattern>/files</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>downloadServlet</servlet-name>
         <url-pattern>/download/*</url-pattern>
     </servlet-mapping>

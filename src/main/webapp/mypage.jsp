@@ -20,7 +20,7 @@
         </tr>
         <c:forEach items="${list}" var="list">
         <tr>
-        <td><image src="${list.isDirectory() ? '../static/images/directory.png' : '../static/images/file.jpg'}" width="50" height="50"></td>
+        <td><image src="${list.isDirectory() ? '../static/images/directory.png' : '../static/images/file.png'}" width="50" height="50"></td>
         <td>
             <c:choose>
                 <c:when test="${list.isDirectory()}">

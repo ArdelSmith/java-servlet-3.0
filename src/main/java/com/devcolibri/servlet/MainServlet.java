@@ -12,6 +12,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
+//пример рабочей ссылки
+//http://localhost:8080/files?path=C:/Users/Default
+@WebServlet("/files")
 public class MainServlet extends HttpServlet {
 
     @Override
@@ -19,7 +22,7 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String path = "path";
-        if (request.getParameter(path) == null) {
+        if (request.getParameter(path) == null || request.getParameter(path).equals("")) {
             request.setAttribute("path", Paths.get("").toAbsolutePath().toString());
         }
         else {
